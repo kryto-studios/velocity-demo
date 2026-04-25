@@ -129,12 +129,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Parallax Image Scrolling
-        const parallaxElements = document.querySelectorAll('.parallax');
-        parallaxElements.forEach(el => {
-            const speed = el.dataset.speed || 0.15;
-            el.style.transform = `translateY(${window.scrollY * speed}px)`;
-        });
+        // Parallax Image Scrolling (Desktop only)
+        if (window.innerWidth >= 768) {
+            const parallaxElements = document.querySelectorAll('.parallax');
+            parallaxElements.forEach(el => {
+                const speed = el.dataset.speed || 0.15;
+                el.style.transform = `translateY(${window.scrollY * speed}px)`;
+            });
+        } else {
+            document.querySelectorAll('.parallax').forEach(el => el.style.transform = 'none');
+        }
         
         // Sticky Nav visual tweak
         const navbar = document.getElementById('navbar');

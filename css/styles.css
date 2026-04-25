@@ -160,14 +160,15 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(0, 71, 171, 0.06) 0%, rgba(0, 0, 0, 0) 60%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(0, 71, 171, 0.15) 0%, rgba(255, 215, 0, 0.08) 30%, rgba(0, 0, 0, 0) 60%);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: 9998;
     transition: width 0.2s, height 0.2s;
+    mix-blend-mode: multiply;
 }
 
 /* Custom Animated Cursor */
@@ -180,14 +181,16 @@ body {
         position: fixed;
         top: 0;
         left: 0;
-        width: 12px;
-        height: 12px;
-        background-color: #0047AB;
+        width: 32px;
+        height: 32px;
+        background-color: transparent;
+        border: 2px solid rgba(0, 71, 171, 0.8);
         border-radius: 50%;
         transform: translate(-50%, -50%);
         pointer-events: none;
         z-index: 9999;
-        transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+        backdrop-filter: invert(0.2); /* Slight color distortion for interest */
+        transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background-color 0.3s ease, backdrop-filter 0.3s ease;
     }
 
     #custom-cursor::after {
@@ -196,21 +199,23 @@ body {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 40px;
-        height: 40px;
-        border: 2px solid rgba(0, 71, 171, 0.3);
+        width: 6px;
+        height: 6px;
+        background-color: #0047AB;
         border-radius: 50%;
-        transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background-color 0.3s ease;
+        transition: opacity 0.2s ease, transform 0.2s ease;
     }
 
     #custom-cursor.hovering {
-        background-color: transparent;
+        width: 64px;
+        height: 64px;
+        background-color: rgba(255, 215, 0, 0.25);
+        border-color: #FFD700;
+        backdrop-filter: blur(4px); /* Frosty glass effect when hovering */
     }
 
     #custom-cursor.hovering::after {
-        width: 60px;
-        height: 60px;
-        background-color: rgba(255, 215, 0, 0.15);
-        border-color: #FFD700;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
     }
 }
