@@ -7,23 +7,86 @@ html {
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Professional Academic Background */
+    background-color: #f8fafc; /* velocity-light */
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(0, 71, 171, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(255, 215, 0, 0.05) 0px, transparent 50%),
+        radial-gradient(#cbd5e1 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 32px 32px;
+    background-attachment: fixed;
 }
 
-/* Animations */
+/* Scroll Animations Base */
+.scroll-anim {
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.scroll-anim.in-view {
+    opacity: 1;
+    transform: translate(0);
+}
+
+/* Specific Animations */
+.scroll-anim.fade-up {
+    transform: translateY(40px);
+}
+
+.scroll-anim.fade-left {
+    transform: translateX(40px);
+}
+
+.scroll-anim.fade-right {
+    transform: translateX(-40px);
+}
+
+/* Delays for staggered elements */
+.delay-1 { transition-delay: 100ms; }
+.delay-2 { transition-delay: 200ms; }
+.delay-3 { transition-delay: 300ms; }
+.delay-4 { transition-delay: 400ms; }
+
+/* Existing Animations from Hero */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
-
 .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
     opacity: 0;
+}
+
+/* Subtle Hero Zoom */
+@keyframes subtleZoom {
+    0% { transform: scale(1.05); }
+    100% { transform: scale(1.15); }
+}
+.animate-subtle-zoom {
+    animation: subtleZoom 20s ease-in-out alternate infinite;
+}
+
+/* Review Marquee */
+.marquee-container {
+    /* Create faded edges */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-content {
+    display: flex;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+}
+
+.marquee-content:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); /* For seamless loop, we duplicate items in JS and scroll 50% */ }
 }
 
 /* Masonry Grid styles for Gallery */
@@ -33,15 +96,11 @@ body {
 }
 
 @media (min-width: 640px) {
-    .masonry-grid {
-        column-count: 2;
-    }
+    .masonry-grid { column-count: 2; }
 }
 
 @media (min-width: 1024px) {
-    .masonry-grid {
-        column-count: 3;
-    }
+    .masonry-grid { column-count: 3; }
 }
 
 .masonry-item {
@@ -51,23 +110,24 @@ body {
     overflow: hidden;
     border-radius: 0.5rem;
     cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 .masonry-item img {
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .masonry-item:hover img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .masonry-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0, 71, 171, 0.8), transparent);
+    background: linear-gradient(to top, rgba(0, 71, 171, 0.9), transparent);
     opacity: 0;
     transition: opacity 0.3s ease;
     display: flex;
@@ -97,4 +157,19 @@ body {
         left: 50%;
         transform: translateX(-50%);
     }
+}
+
+/* Interactive Cursor Glow */
+#cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 71, 171, 0.06) 0%, rgba(0, 0, 0, 0) 60%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9998;
+    transition: width 0.2s, height 0.2s;
 }
