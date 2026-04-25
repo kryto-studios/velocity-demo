@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="snap-y snap-proximity">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -111,7 +111,7 @@
     <main class="flex-grow">
 
         <!-- ==================== HERO SECTION ==================== -->
-        <section id="home" class="relative bg-velocity-dark text-white overflow-hidden min-h-[90vh] flex items-center snap-start">
+        <section id="home" class="relative bg-velocity-dark text-white overflow-hidden min-h-[100vh] md:min-h-[90vh] py-32 md:py-0 flex items-center">
             <!-- Background Image with Overlay -->
             <div class="absolute inset-0 z-0 parallax" data-speed="0.3">
                 <img src="https://lh3.googleusercontent.com/p/AF1QipM9cMim0LrHGSxl1BRod_MHvaUB2hQFp9y1WuRi=s1600"
@@ -124,7 +124,7 @@
                 <span
                     class="inline-block py-1 px-3 rounded-full bg-velocity-yellow/20 text-velocity-yellow text-sm font-semibold tracking-wider mb-6 scroll-anim fade-up delay-1">WELCOME
                     TO VELOCITY</span>
-                <h1 class="font-heading text-5xl md:text-7xl font-bold mb-6 leading-tight scroll-anim fade-up delay-2">
+                <h1 class="font-heading text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight scroll-anim fade-up delay-2">
                     Velocity Education <br> <span
                         class="text-transparent bg-clip-text bg-gradient-to-r from-velocity-yellow to-yellow-200">Ambikapur</span>
                 </h1>
@@ -132,13 +132,13 @@
                     Empowering students for JEE, NEET, and Academic Excellence. Join the premier institute shaping the
                     future of Ambikapur's brightest minds.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 scroll-anim fade-up delay-4">
+                <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto scroll-anim fade-up delay-4">
                     <a href="#records"
-                        class="bg-velocity-yellow text-velocity-dark font-bold px-8 py-4 rounded hover:bg-yellow-400 transition transform hover:-translate-y-1 shadow-lg">
+                        class="bg-velocity-yellow text-velocity-dark font-bold px-8 py-4 rounded hover:bg-yellow-400 transition transform hover:-translate-y-1 shadow-lg w-full sm:w-auto text-center">
                         Explore Achievements
                     </a>
                     <a href="#curriculum"
-                        class="bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold px-8 py-4 rounded hover:bg-white/20 transition hover:border-white/40">
+                        class="bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold px-8 py-4 rounded hover:bg-white/20 transition hover:border-white/40 w-full sm:w-auto text-center">
                         View Curriculum
                     </a>
                 </div>
@@ -147,7 +147,7 @@
 
         <!-- Stats Section -->
         <section
-            class="py-12 bg-white/90 backdrop-blur-md border border-slate-200/50 relative z-20 -mt-12 mx-4 md:mx-auto container rounded-2xl shadow-xl scroll-anim fade-up">
+            class="py-12 bg-white/90 backdrop-blur-md border border-slate-200/50 relative z-20 mt-4 md:-mt-12 mx-4 md:mx-auto container rounded-2xl shadow-xl scroll-anim fade-up">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div>
                     <div class="text-4xl font-heading font-bold text-velocity-blue mb-2">4.9<span
@@ -170,9 +170,9 @@
         </section>
 
         <!-- ==================== ABOUT US SECTION ==================== -->
-        <section id="about" class="py-24 scroll-mt-20 snap-start">
+        <section id="about" class="py-16 md:py-24 scroll-mt-20">
             <div class="container mx-auto px-4">
-                <div class="flex flex-col md:flex-row gap-12 items-center mb-20">
+                <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-center mb-16 md:mb-20">
                     <div class="w-full md:w-1/2 scroll-anim fade-right">
                         <div class="relative parallax" data-speed="0.1">
                             <img src="https://lh3.googleusercontent.com/p/AF1QipNNUQZy7uenIFznzt6OiaLn3IlMsilhgAyO9Ydf=s1600"
@@ -188,7 +188,7 @@
                     <div class="w-full md:w-1/2 scroll-anim fade-left">
                         <span class="text-velocity-blue font-semibold tracking-wider text-sm uppercase mb-2 block">Our
                             Philosophy</span>
-                        <h2 class="font-heading text-4xl md:text-5xl font-bold text-slate-800 mb-6">Excellence is not an
+                        <h2 class="font-heading text-3xl md:text-5xl font-bold text-slate-800 mb-6">Excellence is not an
                             act, but a habit.</h2>
                         <p class="text-slate-600 mb-6 leading-relaxed text-lg">
                             At Velocity Education, we believe that every student has the potential to achieve greatness.
@@ -233,12 +233,12 @@
         </section>
 
         <!-- ==================== CURRICULUM SECTION ==================== -->
-        <section id="curriculum" class="py-24 scroll-mt-20 relative snap-start">
+        <section id="curriculum" class="py-16 md:py-24 scroll-mt-20 relative">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16 scroll-anim fade-up">
                     <span class="text-velocity-blue font-semibold tracking-wider text-sm uppercase mb-2 block">Core
                         Offerings</span>
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold text-slate-800">Our Curriculum Programs</h2>
+                    <h2 class="font-heading text-3xl md:text-5xl font-bold text-slate-800">Our Curriculum Programs</h2>
                     <p class="text-slate-600 mt-4 max-w-2xl mx-auto text-lg">Comprehensive coaching designed for peak
                         performance across competitive exams and school academics.</p>
                 </div>
@@ -346,10 +346,10 @@
                 </div>
 
                 <!-- Exams We Cover -->
-                <div class="mt-24 scroll-anim fade-up">
-                    <div class="text-center mb-10">
-                        <h3 class="font-heading text-3xl font-bold text-slate-800">Exams We Cover</h3>
-                        <p class="text-slate-500 mt-2 max-w-2xl mx-auto">Providing comprehensive and focused preparation for India's most competitive entrance and board examinations.</p>
+                <div class="mt-16 md:mt-24 scroll-anim fade-up">
+                    <div class="text-center mb-8 md:mb-10">
+                        <h3 class="font-heading text-2xl md:text-3xl font-bold text-slate-800">Exams We Cover</h3>
+                        <p class="text-slate-500 mt-2 max-w-2xl mx-auto px-4 md:px-0">Providing comprehensive and focused preparation for India's most competitive entrance and board examinations.</p>
                     </div>
                     <div class="flex flex-wrap justify-center gap-3 md:gap-4 max-w-5xl mx-auto">
                         <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> CAT</span>
@@ -374,12 +374,12 @@
         </section>
 
         <!-- ==================== RECORD ROOM SECTION ==================== -->
-        <section id="records" class="py-24 scroll-mt-20 snap-start">
+        <section id="records" class="py-16 md:py-24 scroll-mt-20">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16 scroll-anim fade-up">
                     <span class="text-velocity-blue font-semibold tracking-wider text-sm uppercase mb-2 block">Our
                         Legacy</span>
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold text-slate-800">The Record Room</h2>
+                    <h2 class="font-heading text-3xl md:text-5xl font-bold text-slate-800">The Record Room</h2>
                     <p class="text-slate-600 mt-4 max-w-2xl mx-auto text-lg">Celebrating our top achievers, memorable
                         events, and vibrant campus life.</p>
                 </div>
