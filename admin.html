@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Velocity Education</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { velocity: { blue: '#0047AB', yellow: '#FFD700', dark: '#0f172a', light: '#f8fafc' } }, fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Outfit', 'sans-serif'] } } } }
+    </script>
+</head>
+<body class="bg-slate-100 text-slate-800 font-sans">
+
+    <!-- Admin Sidebar & Topbar Setup -->
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- Sidebar -->
+        <aside class="w-64 bg-velocity-dark text-slate-300 hidden md:flex flex-col">
+            <div class="p-6 flex items-center gap-2 border-b border-slate-700">
+                <div class="bg-velocity-blue text-white w-8 h-8 flex items-center justify-center rounded font-heading font-bold text-lg">V</div>
+                <div class="font-heading font-bold text-xl tracking-tight text-white">Admin</div>
+            </div>
+            <nav class="flex-1 py-6 px-4 space-y-2">
+                <a href="#tab-achievements" class="admin-tab-btn active flex items-center gap-3 px-4 py-3 rounded bg-velocity-blue text-white transition"><i class="ph ph-trophy text-xl"></i> Achievements</a>
+                <a href="#tab-events" class="admin-tab-btn flex items-center gap-3 px-4 py-3 rounded hover:bg-slate-800 transition"><i class="ph ph-calendar text-xl"></i> Events</a>
+                <a href="#tab-gallery" class="admin-tab-btn flex items-center gap-3 px-4 py-3 rounded hover:bg-slate-800 transition"><i class="ph ph-image text-xl"></i> Gallery</a>
+            </nav>
+            <div class="p-4 border-t border-slate-700">
+                <a href="index.html" class="flex items-center gap-2 text-sm hover:text-white transition"><i class="ph ph-arrow-left"></i> Back to Website</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col h-full overflow-y-auto">
+            <!-- Topbar -->
+            <header class="bg-white shadow-sm px-6 py-4 flex justify-between items-center md:justify-end">
+                <a href="index.html" class="md:hidden flex items-center gap-2 text-velocity-blue font-bold font-heading"><i class="ph ph-arrow-left"></i> Velocity</a>
+                <div class="flex items-center gap-4">
+                    <span class="text-sm font-medium text-slate-500">Welcome, Staff</span>
+                    <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-500"><i class="ph ph-user"></i></div>
+                </div>
+            </header>
+
+            <div class="p-6 md:p-10 max-w-5xl mx-auto w-full">
+                
+                <!-- Achievements Tab -->
+                <div id="tab-achievements" class="admin-tab-content block">
+                    <div class="flex justify-between items-center mb-8">
+                        <div>
+                            <h1 class="text-2xl font-bold text-slate-800">Manage Achievements</h1>
+                            <p class="text-slate-500 text-sm mt-1">Add or remove student records from the Hall of Fame.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-sm border border-slate-200 p-6 mb-8">
+                        <h2 class="text-lg font-bold mb-4 border-b pb-2">Add New Achievement</h2>
+                        <form id="form-achievement" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1">Student Name</label>
+                                    <input type="text" id="ach-name" required class="w-full border border-slate-300 rounded px-3 py-2 focus:ring-velocity-blue focus:border-velocity-blue">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1">Year</label>
+                                    <input type="text" id="ach-year" required class="w-full border border-slate-300 rounded px-3 py-2 focus:ring-velocity-blue focus:border-velocity-blue">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Description (e.g., AIR 45 in JEE)</label>
+                                <input type="text" id="ach-desc" required class="w-full border border-slate-300 rounded px-3 py-2 focus:ring-velocity-blue focus:border-velocity-blue">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Student Photo</label>
+                                <input type="file" id="ach-img" accept="image/*" required class="w-full border border-slate-300 rounded px-3 py-2 text-sm">
+                            </div>
+                            <button type="submit" class="bg-velocity-blue text-white px-6 py-2 rounded hover:bg-blue-700 transition">Save Achievement</button>
+                        </form>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
+                        <h2 class="text-lg font-bold mb-4 border-b pb-2">Current Achievements</h2>
+                        <div id="list-achievements" class="space-y-3">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Events Tab -->
+                <div id="tab-events" class="admin-tab-content hidden">
+                    <div class="flex justify-between items-center mb-8">
+                        <div>
+                            <h1 class="text-2xl font-bold text-slate-800">Manage Events</h1>
+                            <p class="text-slate-500 text-sm mt-1">Add or remove upcoming and past events.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-sm border border-slate-200 p-6 mb-8">
+                        <h2 class="text-lg font-bold mb-4 border-b pb-2">Add New Event</h2>
+                        <form id="form-event" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1">Event Title</label>
+                                    <input type="text" id="ev-title" required class="w-full border border-slate-300 rounded px-3 py-2 focus:ring-velocity-blue focus:border-velocity-blue">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1">Date</label>
+                                    <input type="date" id="ev-date" required class="w-full border border-slate-300 rounded px-3 py-2 focus:ring-velocity-blue focus:border-velocity-blue">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Short Description</label>
+                                <textarea id="ev-desc" required rows="3" class="w-full border border-slate-300 rounded px-3 py-2 focus:ring-velocity-blue focus:border-velocity-blue"></textarea>
+                            </div>
+                            <button type="submit" class="bg-velocity-blue text-white px-6 py-2 rounded hover:bg-blue-700 transition">Save Event</button>
+                        </form>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
+                        <h2 class="text-lg font-bold mb-4 border-b pb-2">Current Events</h2>
+                        <div id="list-events" class="space-y-3">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Tab -->
+                <div id="tab-gallery" class="admin-tab-content hidden">
+                    <div class="flex justify-between items-center mb-8">
+                        <div>
+                            <h1 class="text-2xl font-bold text-slate-800">Manage Gallery</h1>
+                            <p class="text-slate-500 text-sm mt-1">Upload images to the public gallery masonry grid.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-sm border border-slate-200 p-6 mb-8">
+                        <h2 class="text-lg font-bold mb-4 border-b pb-2">Upload New Image</h2>
+                        <form id="form-gallery" class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Image Caption/Title</label>
+                                <input type="text" id="gal-title" required class="w-full border border-slate-300 rounded px-3 py-2 focus:ring-velocity-blue focus:border-velocity-blue">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Image File</label>
+                                <input type="file" id="gal-img" accept="image/*" required class="w-full border border-slate-300 rounded px-3 py-2 text-sm">
+                            </div>
+                            <button type="submit" class="bg-velocity-blue text-white px-6 py-2 rounded hover:bg-blue-700 transition">Upload Image</button>
+                        </form>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
+                        <h2 class="text-lg font-bold mb-4 border-b pb-2">Current Gallery Images</h2>
+                        <div id="list-gallery" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Tab switching logic
+        const tabBtns = document.querySelectorAll('.admin-tab-btn');
+        const tabContents = document.querySelectorAll('.admin-tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = btn.getAttribute('href').substring(1);
+                
+                // Update buttons
+                tabBtns.forEach(b => {
+                    b.classList.remove('bg-velocity-blue', 'text-white');
+                    b.classList.add('hover:bg-slate-800');
+                });
+                btn.classList.add('bg-velocity-blue', 'text-white');
+                btn.classList.remove('hover:bg-slate-800');
+
+                // Update content
+                tabContents.forEach(content => {
+                    content.classList.add('hidden');
+                    if (content.id === targetId) {
+                        content.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+
+        // Helper: Read File as Base64
+        function readFileAsBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = error => reject(error);
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // --- Achievements ---
+        const listAch = document.getElementById('list-achievements');
+        const formAch = document.getElementById('form-achievement');
+
+        function renderAchievements() {
+            const data = JSON.parse(localStorage.getItem('velocity_achievements') || '[]');
+            if(data.length === 0) { listAch.innerHTML = '<p class="text-sm text-slate-500">No records found.</p>'; return; }
+            
+            listAch.innerHTML = data.map(item => `
+                <div class="flex items-center justify-between p-3 bg-slate-50 rounded border border-slate-100">
+                    <div class="flex items-center gap-4">
+                        <img src="${item.image}" class="w-12 h-12 object-cover rounded-full">
+                        <div>
+                            <div class="font-semibold text-sm">${item.title} (${item.year})</div>
+                            <div class="text-xs text-slate-500">${item.description}</div>
+                        </div>
+                    </div>
+                    <button onclick="deleteItem('velocity_achievements', ${item.id})" class="text-red-500 hover:text-red-700 text-xl"><i class="ph ph-trash"></i></button>
+                </div>
+            `).join('');
+        }
+
+        formAch.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const file = document.getElementById('ach-img').files[0];
+            const base64Img = await readFileAsBase64(file);
+            
+            const newItem = {
+                id: Date.now(),
+                title: document.getElementById('ach-name').value,
+                year: document.getElementById('ach-year').value,
+                description: document.getElementById('ach-desc').value,
+                image: base64Img
+            };
+            
+            const data = JSON.parse(localStorage.getItem('velocity_achievements') || '[]');
+            data.push(newItem);
+            localStorage.setItem('velocity_achievements', JSON.stringify(data));
+            formAch.reset();
+            renderAchievements();
+        });
+
+        // --- Events ---
+        const listEv = document.getElementById('list-events');
+        const formEv = document.getElementById('form-event');
+
+        function renderEvents() {
+            const data = JSON.parse(localStorage.getItem('velocity_events') || '[]');
+            if(data.length === 0) { listEv.innerHTML = '<p class="text-sm text-slate-500">No events found.</p>'; return; }
+            
+            listEv.innerHTML = data.map(item => `
+                <div class="flex items-center justify-between p-3 bg-slate-50 rounded border border-slate-100">
+                    <div>
+                        <div class="font-semibold text-sm">${item.title}</div>
+                        <div class="text-xs text-slate-500">${item.date}</div>
+                    </div>
+                    <button onclick="deleteItem('velocity_events', ${item.id})" class="text-red-500 hover:text-red-700 text-xl"><i class="ph ph-trash"></i></button>
+                </div>
+            `).join('');
+        }
+
+        formEv.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const newItem = {
+                id: Date.now(),
+                title: document.getElementById('ev-title').value,
+                date: document.getElementById('ev-date').value,
+                description: document.getElementById('ev-desc').value
+            };
+            
+            const data = JSON.parse(localStorage.getItem('velocity_events') || '[]');
+            data.push(newItem);
+            localStorage.setItem('velocity_events', JSON.stringify(data));
+            formEv.reset();
+            renderEvents();
+        });
+
+        // --- Gallery ---
+        const listGal = document.getElementById('list-gallery');
+        const formGal = document.getElementById('form-gallery');
+
+        function renderGallery() {
+            const data = JSON.parse(localStorage.getItem('velocity_gallery') || '[]');
+            if(data.length === 0) { listGal.innerHTML = '<p class="text-sm text-slate-500 col-span-4">No images found.</p>'; return; }
+            
+            listGal.innerHTML = data.map(item => `
+                <div class="relative group rounded overflow-hidden aspect-square bg-slate-200">
+                    <img src="${item.url}" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-2">
+                        <button onclick="deleteItem('velocity_gallery', ${item.id})" class="bg-red-500 text-white p-2 rounded-full hover:bg-red-600"><i class="ph ph-trash text-lg"></i></button>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-black/60 text-white text-xs p-1 truncate">${item.title}</div>
+                </div>
+            `).join('');
+        }
+
+        formGal.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const file = document.getElementById('gal-img').files[0];
+            const base64Img = await readFileAsBase64(file);
+            
+            const newItem = {
+                id: Date.now(),
+                title: document.getElementById('gal-title').value,
+                url: base64Img
+            };
+            
+            const data = JSON.parse(localStorage.getItem('velocity_gallery') || '[]');
+            data.push(newItem);
+            localStorage.setItem('velocity_gallery', JSON.stringify(data));
+            formGal.reset();
+            renderGallery();
+        });
+
+        // Global Delete function
+        window.deleteItem = (storageKey, id) => {
+            if(confirm('Are you sure you want to delete this item?')) {
+                let data = JSON.parse(localStorage.getItem(storageKey) || '[]');
+                data = data.filter(item => item.id !== id);
+                localStorage.setItem(storageKey, JSON.stringify(data));
+                
+                if(storageKey === 'velocity_achievements') renderAchievements();
+                if(storageKey === 'velocity_events') renderEvents();
+                if(storageKey === 'velocity_gallery') renderGallery();
+            }
+        };
+
+        // Initialize lists on load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderAchievements();
+            renderEvents();
+            renderGallery();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocity Education | Ambikapur</title>
+    <meta name="description"
+        content="Empowering students for JEE, NEET, and Academic Excellence at Velocity Education, Ambikapur.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        velocity: {
+                            blue: '#0047AB',
+                            yellow: '#FFD700',
+                            dark: '#0f172a',
+                            light: '#f8fafc'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bg-velocity-light text-slate-800 font-sans flex flex-col min-h-screen">
+
+    <!-- Contact Bar -->
+    <div class="bg-velocity-blue text-white text-sm py-2">
+        <div class="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center">
+            <div class="flex items-center gap-2 mb-1 sm:mb-0">
+                <i class="ph ph-map-pin text-velocity-yellow text-lg"></i>
+                <span>Beside Timber Bhawan, Choprapara, Ambikapur</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2">
+                    <i class="ph ph-phone text-velocity-yellow text-lg"></i>
+                    <span>+91 70248 98343</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="ph ph-clock text-velocity-yellow text-lg"></i>
+                    <span>9:00 AM - 8:00 PM</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <!-- Using a text logo, but could be replaced with an image -->
+                <div
+                    class="bg-velocity-blue text-white w-10 h-10 flex items-center justify-center rounded font-heading font-bold text-xl">
+                    V</div>
+                <div class="font-heading font-bold text-2xl tracking-tight text-velocity-blue">Velocity<span
+                        class="text-velocity-yellow">.</span></div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex gap-8 font-medium text-slate-600">
+                <a href="index.html"
+                    class="text-velocity-blue font-semibold hover:text-velocity-blue transition">Home</a>
+                <a href="about.html" class="hover:text-velocity-blue transition">About Us</a>
+                <a href="curriculum.html" class="hover:text-velocity-blue transition">Curriculum</a>
+                <a href="records.html" class="hover:text-velocity-blue transition">Record Room</a>
+                <a href="#footer" class="hover:text-velocity-blue transition">Contact</a>
+            </nav>
+
+            <a href="admin.html"
+                class="hidden md:flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-velocity-blue transition">
+                <i class="ph ph-lock-key"></i> Admin
+            </a>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="md:hidden text-2xl text-velocity-blue" id="mobile-menu-btn">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-40 hidden flex-col pt-24 px-6 gap-6 text-xl font-heading font-semibold">
+        <button id="mobile-menu-close" class="absolute top-6 right-6 text-3xl text-slate-400">
+            <i class="ph ph-x"></i>
+        </button>
+        <a href="index.html" class="text-velocity-blue">Home</a>
+        <a href="about.html" class="text-slate-800">About Us</a>
+        <a href="curriculum.html" class="text-slate-800">Curriculum</a>
+        <a href="records.html" class="text-slate-800">Record Room</a>
+        <a href="#footer" class="text-slate-800">Contact</a>
+        <a href="admin.html" class="text-slate-500 text-base mt-auto mb-8"><i class="ph ph-lock-key"></i> Admin</a>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative bg-velocity-dark text-white overflow-hidden">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop"
+                    alt="Students studying" class="w-full h-full object-cover opacity-30">
+                <div class="absolute inset-0 bg-gradient-to-r from-velocity-blue/90 to-velocity-dark/80"></div>
+            </div>
+
+            <div class="container mx-auto px-4 py-24 md:py-32 relative z-10 flex flex-col items-center text-center">
+                <span
+                    class="inline-block py-1 px-3 rounded-full bg-velocity-yellow/20 text-velocity-yellow text-sm font-semibold tracking-wider mb-6 animate-fade-in-up">WELCOME
+                    TO VELOCITY</span>
+                <h1 class="font-heading text-5xl md:text-7xl font-bold mb-6 leading-tight animate-fade-in-up"
+                    style="animation-delay: 100ms;">
+                    Velocity Education <br> <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-velocity-yellow to-yellow-200">Ambikapur</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-200 max-w-2xl mb-10 animate-fade-in-up"
+                    style="animation-delay: 200ms;">
+                    Empowering students for JEE, NEET, and Academic Excellence. Join the premier institute shaping the
+                    future of Ambikapur's brightest minds.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style="animation-delay: 300ms;">
+                    <a href="records.html"
+                        class="bg-velocity-yellow text-velocity-dark font-bold px-8 py-4 rounded hover:bg-yellow-400 transition transform hover:-translate-y-1 shadow-lg">
+                        Explore Achievements
+                    </a>
+                    <a href="curriculum.html"
+                        class="bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold px-8 py-4 rounded hover:bg-white/20 transition">
+                        View Curriculum
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Stats / Highlights -->
+        <section class="py-12 bg-white border-b border-slate-100">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <div class="text-4xl font-heading font-bold text-velocity-blue mb-2">4.9<span
+                                class="text-velocity-yellow">★</span></div>
+                        <div class="text-sm font-medium text-slate-500 uppercase tracking-wide">Student Rating</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-heading font-bold text-velocity-blue mb-2">JEE/NEET</div>
+                        <div class="text-sm font-medium text-slate-500 uppercase tracking-wide">Specialized Coaching
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-heading font-bold text-velocity-blue mb-2">100+</div>
+                        <div class="text-sm font-medium text-slate-500 uppercase tracking-wide">Top Rankers</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-heading font-bold text-velocity-blue mb-2">Expert</div>
+                        <div class="text-sm font-medium text-slate-500 uppercase tracking-wide">Faculty Members</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Intro -->
+        <section class="py-20 bg-slate-50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-velocity-dark mb-6">Building the
+                        Foundation for Your Success</h2>
+                    <p class="text-slate-600 text-lg mb-8 leading-relaxed">
+                        At Velocity Education, we believe in nurturing potential through expert guidance, rigorous
+                        curriculum, and a supportive environment. Our results speak for themselves, making us the
+                        trusted choice for competitive exam preparation in Chhattisgarh.
+                    </p>
+                    <a href="about.html"
+                        class="text-velocity-blue font-semibold hover:text-velocity-dark transition inline-flex items-center gap-2">
+                        Learn more about our philosophy <i class="ph ph-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-velocity-dark text-slate-300 pt-16 pb-8 border-t-4 border-velocity-yellow">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <!-- Info -->
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <div
+                            class="bg-velocity-blue text-white w-8 h-8 flex items-center justify-center rounded font-heading font-bold text-lg">
+                            V</div>
+                        <div class="font-heading font-bold text-xl tracking-tight text-white">Velocity<span
+                                class="text-velocity-yellow">.</span></div>
+                    </div>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        The premier coaching institute in Ambikapur dedicated to JEE, NEET, and Foundation courses.
+                    </p>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-start gap-3">
+                            <i class="ph ph-map-pin text-velocity-yellow text-xl shrink-0 mt-0.5"></i>
+                            <span>Beside Timber Bhawan, Choprapara, <br> Ambikapur, Chhattisgarh</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="ph ph-phone text-velocity-yellow text-xl shrink-0"></i>
+                            <span>+91 70248 98343</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="ph ph-clock text-velocity-yellow text-xl shrink-0"></i>
+                            <span>9:00 AM - 8:00 PM (Daily)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-white font-heading font-bold text-lg mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="about.html"
+                                class="hover:text-velocity-yellow transition flex items-center gap-2"><i
+                                    class="ph ph-caret-right"></i> About Us</a></li>
+                        <li><a href="curriculum.html"
+                                class="hover:text-velocity-yellow transition flex items-center gap-2"><i
+                                    class="ph ph-caret-right"></i> Curriculum</a></li>
+                        <li><a href="records.html"
+                                class="hover:text-velocity-yellow transition flex items-center gap-2"><i
+                                    class="ph ph-caret-right"></i> Hall of Fame</a></li>
+                        <li><a href="records.html#gallery"
+                                class="hover:text-velocity-yellow transition flex items-center gap-2"><i
+                                    class="ph ph-caret-right"></i> Gallery</a></li>
+                    </ul>
+                </div>
+
+                <!-- Inquiry Form -->
+                <div>
+                    <h3 class="text-white font-heading font-bold text-lg mb-6">Quick Inquiry</h3>
+                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Inquiry sent successfully!');">
+                        <div>
+                            <input type="text" placeholder="Your Name" required
+                                class="w-full bg-slate-800 border border-slate-700 rounded px-4 py-2 text-white focus:outline-none focus:border-velocity-blue focus:ring-1 focus:ring-velocity-blue">
+                        </div>
+                        <div>
+                            <input type="tel" placeholder="Phone Number" required
+                                class="w-full bg-slate-800 border border-slate-700 rounded px-4 py-2 text-white focus:outline-none focus:border-velocity-blue focus:ring-1 focus:ring-velocity-blue">
+                        </div>
+                        <div>
+                            <select
+                                class="w-full bg-slate-800 border border-slate-700 rounded px-4 py-2 text-slate-300 focus:outline-none focus:border-velocity-blue focus:ring-1 focus:ring-velocity-blue">
+                                <option value="">Select Course</option>
+                                <option value="jee">JEE (Mains + Advanced)</option>
+                                <option value="neet">NEET</option>
+                                <option value="foundation">Foundation (9th & 10th)</option>
+                            </select>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-velocity-blue text-white font-medium py-2 rounded hover:bg-blue-700 transition">Submit
+                            Inquiry</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Map & Copyright -->
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="w-full md:w-1/2 h-32 rounded overflow-hidden">
+                    <!-- Google Maps Embed (Using a placeholder map visual for aesthetic purposes) -->
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14660.103213071852!2d83.1812!3d23.1234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDA3JzI0LjIiTiA4M8KwMTAnNTIuMyJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="text-sm text-slate-500 text-center md:text-right">
+                    <p>&copy; 2026 Velocity Education Ambikapur. All rights reserved.</p>
+                    <p class="mt-1">Designed by Dewansh Chatterjee</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

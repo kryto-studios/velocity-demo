@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum | Velocity Education</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { velocity: { blue: '#0047AB', yellow: '#FFD700', dark: '#0f172a', light: '#f8fafc' } }, fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Outfit', 'sans-serif'] } } } }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-velocity-light text-slate-800 font-sans flex flex-col min-h-screen">
+
+    <!-- Header (Same as About) -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="bg-velocity-blue text-white w-10 h-10 flex items-center justify-center rounded font-heading font-bold text-xl">V</div>
+                <div class="font-heading font-bold text-2xl tracking-tight text-velocity-blue">Velocity<span class="text-velocity-yellow">.</span></div>
+            </a>
+            <nav class="hidden md:flex gap-8 font-medium text-slate-600">
+                <a href="index.html" class="hover:text-velocity-blue transition">Home</a>
+                <a href="about.html" class="hover:text-velocity-blue transition">About Us</a>
+                <a href="curriculum.html" class="text-velocity-blue font-semibold hover:text-velocity-blue transition">Curriculum</a>
+                <a href="records.html" class="hover:text-velocity-blue transition">Record Room</a>
+            </nav>
+            <button class="md:hidden text-2xl text-velocity-blue" id="mobile-menu-btn"><i class="ph ph-list"></i></button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 hidden flex-col pt-24 px-6 gap-6 text-xl font-heading font-semibold">
+        <button id="mobile-menu-close" class="absolute top-6 right-6 text-3xl text-slate-400"><i class="ph ph-x"></i></button>
+        <a href="index.html" class="text-slate-800">Home</a>
+        <a href="about.html" class="text-slate-800">About Us</a>
+        <a href="curriculum.html" class="text-velocity-blue">Curriculum</a>
+        <a href="records.html" class="text-slate-800">Record Room</a>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- Page Header -->
+        <section class="bg-velocity-dark text-white py-16 md:py-24">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="font-heading text-4xl md:text-5xl font-bold mb-4 animate-fade-in-up">Our Curriculum</h1>
+                <p class="text-slate-300 text-lg max-w-2xl mx-auto animate-fade-in-up" style="animation-delay: 100ms;">Comprehensive coaching programs designed for peak performance.</p>
+            </div>
+        </section>
+
+        <!-- Main Curricular -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <span class="text-velocity-blue font-semibold tracking-wider text-sm uppercase mb-2 block">Core Offerings</span>
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-slate-800">Main Curricular Programs</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <!-- JEE Card -->
+                    <div class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden group hover:-translate-y-2 transition duration-300">
+                        <div class="h-3 bg-velocity-blue w-full"></div>
+                        <div class="p-8">
+                            <div class="w-16 h-16 bg-blue-50 text-velocity-blue rounded-full flex items-center justify-center text-3xl mb-6 group-hover:bg-velocity-blue group-hover:text-white transition">
+                                <i class="ph ph-function"></i>
+                            </div>
+                            <h3 class="font-heading text-2xl font-bold text-slate-800 mb-3">JEE (Mains & Advanced)</h3>
+                            <p class="text-slate-600 mb-6 leading-relaxed">
+                                A rigorous program focusing on Physics, Chemistry, and Mathematics. We build strong analytical skills and problem-solving techniques essential for cracking India's toughest engineering entrance.
+                            </p>
+                            <ul class="space-y-2 text-slate-600">
+                                <li class="flex items-center gap-2"><i class="ph ph-check-circle text-velocity-blue"></i> Daily Practice Problems (DPPs)</li>
+                                <li class="flex items-center gap-2"><i class="ph ph-check-circle text-velocity-blue"></i> Weekly Mock Tests</li>
+                                <li class="flex items-center gap-2"><i class="ph ph-check-circle text-velocity-blue"></i> One-on-One Doubt Clearing</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- NEET Card -->
+                    <div class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden group hover:-translate-y-2 transition duration-300">
+                        <div class="h-3 bg-velocity-yellow w-full"></div>
+                        <div class="p-8">
+                            <div class="w-16 h-16 bg-yellow-50 text-yellow-600 rounded-full flex items-center justify-center text-3xl mb-6 group-hover:bg-velocity-yellow group-hover:text-velocity-dark transition">
+                                <i class="ph ph-dna"></i>
+                            </div>
+                            <h3 class="font-heading text-2xl font-bold text-slate-800 mb-3">NEET (UG)</h3>
+                            <p class="text-slate-600 mb-6 leading-relaxed">
+                                Specialized coaching for medical aspirants. Our curriculum emphasizes conceptual depth in Biology, Chemistry, and Physics, ensuring students are thoroughly prepared for the NEET exam pattern.
+                            </p>
+                            <ul class="space-y-2 text-slate-600">
+                                <li class="flex items-center gap-2"><i class="ph ph-check-circle text-velocity-yellow"></i> NCERT Focused Approach</li>
+                                <li class="flex items-center gap-2"><i class="ph ph-check-circle text-velocity-yellow"></i> Intensive Test Series</li>
+                                <li class="flex items-center gap-2"><i class="ph ph-check-circle text-velocity-yellow"></i> Stress Management Sessions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Co-Curricular -->
+        <section class="py-20 bg-slate-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <span class="text-velocity-blue font-semibold tracking-wider text-sm uppercase mb-2 block">Beyond Books</span>
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-slate-800">Co-Curricular Activities</h2>
+                    <p class="text-slate-600 mt-4 max-w-2xl mx-auto">We believe in holistic development. Our co-curricular programs ensure students build the soft skills required for future leadership.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-100 text-center">
+                        <div class="mx-auto w-12 h-12 bg-slate-100 text-slate-600 rounded-full flex items-center justify-center text-2xl mb-4">
+                            <i class="ph ph-users-three"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Workshops</h4>
+                        <p class="text-slate-500 text-sm">Interactive sessions on time management, study techniques, and scientific application.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-100 text-center">
+                        <div class="mx-auto w-12 h-12 bg-slate-100 text-slate-600 rounded-full flex items-center justify-center text-2xl mb-4">
+                            <i class="ph ph-microphone-stage"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Seminars</h4>
+                        <p class="text-slate-500 text-sm">Guest lectures from successful alumni and industry experts to inspire and guide our students.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-100 text-center">
+                        <div class="mx-auto w-12 h-12 bg-slate-100 text-slate-600 rounded-full flex items-center justify-center text-2xl mb-4">
+                            <i class="ph ph-brain"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Personality Development</h4>
+                        <p class="text-slate-500 text-sm">Communication skills, confidence building, and interview preparation modules.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-velocity-dark text-slate-300 pt-12 pb-8 border-t-4 border-velocity-yellow">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2026 Velocity Education Ambikapur. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
