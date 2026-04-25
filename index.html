@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="snap-y snap-proximity">
 
 <head>
     <meta charset="UTF-8">
@@ -72,13 +72,13 @@
             </a>
 
             <!-- Desktop Menu -->
-            <nav class="hidden md:flex gap-8 font-medium text-slate-600">
-                <a href="#home"
-                    class="nav-link text-velocity-blue font-semibold hover:text-velocity-blue transition">Home</a>
-                <a href="#about" class="nav-link hover:text-velocity-blue transition">About Us</a>
-                <a href="#curriculum" class="nav-link hover:text-velocity-blue transition">Curriculum</a>
-                <a href="#records" class="nav-link hover:text-velocity-blue transition">Record Room</a>
-                <a href="#footer" class="nav-link hover:text-velocity-blue transition">Contact</a>
+            <nav class="hidden md:flex gap-2 font-medium text-slate-600 relative items-center" id="desktop-nav">
+                <div id="nav-pill" class="absolute top-0 bottom-0 left-0 bg-velocity-blue/10 rounded-full transition-all duration-300 ease-out z-0 opacity-0"></div>
+                <a href="#home" class="nav-link text-velocity-blue font-semibold hover:text-velocity-blue transition relative z-10 px-4 py-2 rounded-full">Home</a>
+                <a href="#about" class="nav-link hover:text-velocity-blue transition relative z-10 px-4 py-2 rounded-full">About Us</a>
+                <a href="#curriculum" class="nav-link hover:text-velocity-blue transition relative z-10 px-4 py-2 rounded-full">Curriculum</a>
+                <a href="#records" class="nav-link hover:text-velocity-blue transition relative z-10 px-4 py-2 rounded-full">Record Room</a>
+                <a href="#footer" class="nav-link hover:text-velocity-blue transition relative z-10 px-4 py-2 rounded-full">Contact</a>
             </nav>
 
             <a href="admin.html"
@@ -111,9 +111,9 @@
     <main class="flex-grow">
 
         <!-- ==================== HERO SECTION ==================== -->
-        <section id="home" class="relative bg-velocity-dark text-white overflow-hidden min-h-[90vh] flex items-center">
+        <section id="home" class="relative bg-velocity-dark text-white overflow-hidden min-h-[90vh] flex items-center snap-start">
             <!-- Background Image with Overlay -->
-            <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 z-0 parallax" data-speed="0.3">
                 <img src="https://lh3.googleusercontent.com/p/AF1QipM9cMim0LrHGSxl1BRod_MHvaUB2hQFp9y1WuRi=s1600"
                     alt="Velocity Education Building"
                     class="w-full h-full object-cover opacity-30 transform scale-105 animate-subtle-zoom">
@@ -170,11 +170,11 @@
         </section>
 
         <!-- ==================== ABOUT US SECTION ==================== -->
-        <section id="about" class="py-24 scroll-mt-20">
+        <section id="about" class="py-24 scroll-mt-20 snap-start">
             <div class="container mx-auto px-4">
                 <div class="flex flex-col md:flex-row gap-12 items-center mb-20">
                     <div class="w-full md:w-1/2 scroll-anim fade-right">
-                        <div class="relative">
+                        <div class="relative parallax" data-speed="0.1">
                             <img src="https://lh3.googleusercontent.com/p/AF1QipNNUQZy7uenIFznzt6OiaLn3IlMsilhgAyO9Ydf=s1600"
                                 alt="Velocity Education Classroom"
                                 class="rounded-lg shadow-2xl w-full h-auto object-cover aspect-video">
@@ -233,7 +233,7 @@
         </section>
 
         <!-- ==================== CURRICULUM SECTION ==================== -->
-        <section id="curriculum" class="py-24 scroll-mt-20 relative">
+        <section id="curriculum" class="py-24 scroll-mt-20 relative snap-start">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16 scroll-anim fade-up">
                     <span class="text-velocity-blue font-semibold tracking-wider text-sm uppercase mb-2 block">Core
@@ -344,11 +344,37 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Exams We Cover -->
+                <div class="mt-24 scroll-anim fade-up">
+                    <div class="text-center mb-10">
+                        <h3 class="font-heading text-3xl font-bold text-slate-800">Exams We Cover</h3>
+                        <p class="text-slate-500 mt-2 max-w-2xl mx-auto">Providing comprehensive and focused preparation for India's most competitive entrance and board examinations.</p>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-3 md:gap-4 max-w-5xl mx-auto">
+                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> CAT</span>
+                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> Civil services</span>
+                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> IBPS Clerk</span>
+                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> ICSE board</span>
+                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> JNVST</span>
+                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> NEET</span>
+                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> SSC CGL</span>
+                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> UGC Net</span>
+                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> CBSE board</span>
+                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> CTET</span>
+                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> IBPS RRB</span>
+                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> JEE</span>
+                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> LIC AAO</span>
+                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> SBI Clerk</span>
+                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> SSC Government</span>
+                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> UPSC Government</span>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- ==================== RECORD ROOM SECTION ==================== -->
-        <section id="records" class="py-24 scroll-mt-20">
+        <section id="records" class="py-24 scroll-mt-20 snap-start">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16 scroll-anim fade-up">
                     <span class="text-velocity-blue font-semibold tracking-wider text-sm uppercase mb-2 block">Our

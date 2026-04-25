@@ -1,13 +1,31 @@
 // Main Site Logic
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Mouse Glow Effect ---
+    // --- Mouse Glow & Custom Cursor Effect ---
     const cursorGlow = document.createElement('div');
     cursorGlow.id = 'cursor-glow';
     document.body.appendChild(cursorGlow);
 
+    const customCursor = document.createElement('div');
+    customCursor.id = 'custom-cursor';
+    if (window.matchMedia("(pointer: fine)").matches) {
+        document.body.appendChild(customCursor);
+    }
+
     window.addEventListener('mousemove', (e) => {
-        cursorGlow.style.left = `${e.clientX}px`;
-        cursorGlow.style.top = `${e.clientY}px`;
+        requestAnimationFrame(() => {
+            cursorGlow.style.left = `${e.clientX}px`;
+            cursorGlow.style.top = `${e.clientY}px`;
+            if (window.matchMedia("(pointer: fine)").matches) {
+                customCursor.style.left = `${e.clientX}px`;
+                customCursor.style.top = `${e.clientY}px`;
+            }
+        });
+    });
+
+    // Add hovering class on interactive elements for the cursor
+    document.querySelectorAll('a, button, input, select, textarea, .masonry-item').forEach(el => {
+        el.addEventListener('mouseenter', () => customCursor.classList.add('hovering'));
+        el.addEventListener('mouseleave', () => customCursor.classList.remove('hovering'));
     });
 
     // --- Mobile Menu Toggle ---
@@ -38,6 +56,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Custom Smooth Scrolling with Easing ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (!targetElement) return;
+
+            e.preventDefault();
+            
+            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80;
+            const startPosition = window.scrollY;
+            const distance = targetPosition - startPosition;
+            const duration = 1200; // 1.2 seconds for luxurious feel
+            let start = null;
+
+            // easeOutQuart: fast start, super smooth deceleration
+            const easeOutQuart = (t) => 1 - (--t) * t * t * t;
+
+            const animation = (currentTime) => {
+                if (start === null) start = currentTime;
+                const timeElapsed = currentTime - start;
+                const progress = Math.min(timeElapsed / duration, 1);
+                const easeProgress = easeOutQuart(progress);
+                
+                window.scrollTo(0, startPosition + distance * easeProgress);
+
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(animation);
+                } else {
+                    history.replaceState(null, null, targetId);
+                }
+            };
+
+            requestAnimationFrame(animation);
+        });
+    });
+
     // --- Active Link highlighting on Scroll ---
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -56,6 +113,27 @@ document.addEventListener('DOMContentLoaded', () => {
             if (link.getAttribute('href').includes(current) && current !== '') {
                 link.classList.add('text-velocity-blue', 'font-semibold');
             }
+        });
+        
+        // Floating Pill Navigation
+        const desktopNav = document.getElementById('desktop-nav');
+        const navPill = document.getElementById('nav-pill');
+        if (desktopNav && navPill) {
+            const activeLink = Array.from(navLinks).find(link => link.getAttribute('href').includes(current) && current !== '');
+            if (activeLink) {
+                navPill.style.opacity = '1';
+                navPill.style.width = `${activeLink.offsetWidth}px`;
+                navPill.style.left = `${activeLink.offsetLeft}px`;
+            } else {
+                navPill.style.opacity = '0';
+            }
+        }
+
+        // Parallax Image Scrolling
+        const parallaxElements = document.querySelectorAll('.parallax');
+        parallaxElements.forEach(el => {
+            const speed = el.dataset.speed || 0.15;
+            el.style.transform = `translateY(${window.scrollY * speed}px)`;
         });
         
         // Sticky Nav visual tweak
@@ -92,18 +170,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Google Reviews Marquee ---
     const reviews = [
-        { name: "Rahul S.", rating: 5, text: "Best coaching institute in Ambikapur. Teachers are very supportive and the study material is top-notch." },
-        { name: "Priya M.", rating: 5, text: "My daughter cleared NEET with flying colors thanks to Velocity. Highly recommend their test series!" },
-        { name: "Amit K.", rating: 4, text: "Great environment for competitive exams. The library facility is very peaceful." },
-        { name: "Neha Verma", rating: 5, text: "Excellent faculty for JEE Advanced. Doubt clearing sessions are very helpful." },
-        { name: "Suresh P.", rating: 5, text: "A truly professional institute. They focus on overall development, not just marks." },
+        { name: "Archit Sinha", rating: 5, text: "Great learning experience here .....enabled me to score 95.4% in my 12th boards" },
+        { name: "Paritosh Shrivastava", rating: 5, text: "Kool Saurav Sir is best he’ll definitely help you to reach IIT" },
+        { name: "Akhilesh Tiwari", rating: 5, text: "Thanks velocity classes for giving us quality of education, I watched Rahul Goswami sir video and shared with my friend and relatives." },
+        { name: "Swati Bhagat", rating: 5, text: "Best place for education👌... not for only education... it's helpful for improvement others activities for our children....👍👍👍 Good for NEET prepration..." },
+        { name: "Alok Singh", rating: 5, text: "I would say this coaching institute is the best to crack any competition exam. For this I call Velocity Education the way to success." },
+        { name: "Praveen Kumar", rating: 5, text: "It's a recommended institute for classes upto 12and and preparation of competitive exams" },
     ];
 
     const marqueeContainer = document.getElementById('reviews-marquee');
     if (marqueeContainer) {
         // Create review cards
         const createReviewHTML = (review) => `
-            <div class="bg-white p-6 rounded-xl shadow-md border border-slate-100 min-w-[300px] max-w-[300px] shrink-0 mx-3 hover:shadow-lg transition-shadow">
+            <a href="https://maps.app.goo.gl/XY1paXyXwGSoBwg38" target="_blank" class="block bg-white/90 backdrop-blur-sm p-6 rounded-xl shadow-md border border-slate-100 min-w-[300px] max-w-[300px] shrink-0 mx-3 hover:shadow-lg transition-all hover:-translate-y-1">
                 <div class="flex items-center gap-3 mb-3">
                     <div class="w-10 h-10 rounded-full bg-velocity-blue text-white flex items-center justify-center font-bold text-lg">
                         ${review.name.charAt(0)}
@@ -115,8 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     </div>
                 </div>
-                <p class="text-slate-600 text-sm italic">"${review.text}"</p>
-            </div>
+                <p class="text-slate-600 text-sm italic line-clamp-4">"${review.text}"</p>
+            </a>
         `;
 
         // Add original set
