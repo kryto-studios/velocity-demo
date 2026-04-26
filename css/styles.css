@@ -160,15 +160,16 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 800px;
-    height: 800px;
-    background: radial-gradient(circle, rgba(0, 71, 171, 0.15) 0%, rgba(255, 215, 0, 0.08) 30%, rgba(0, 0, 0, 0) 60%);
+    width: 600px;
+    height: 600px;
+    background: linear-gradient(135deg, rgba(0, 71, 171, 0.06) 0%, rgba(255, 215, 0, 0.06) 100%);
+    -webkit-mask-image: radial-gradient(circle, black 0%, transparent 60%);
+    mask-image: radial-gradient(circle, black 0%, transparent 60%);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: 9998;
     transition: width 0.2s, height 0.2s;
-    mix-blend-mode: multiply;
 }
 
 /* Custom Animated Cursor */
