@@ -1,8 +1,16 @@
 /* Custom Animations and Overrides */
+html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
     /* Professional Academic Background */
     background-color: #f8fafc;
     /* velocity-light */
@@ -21,11 +29,6 @@ body {
     will-change: opacity, transform;
 }
 
-.scroll-anim.in-view {
-    opacity: 1;
-    transform: translate(0);
-}
-
 /* Specific Animations */
 .scroll-anim.fade-up {
     transform: translateY(40px);
@@ -37,6 +40,12 @@ body {
 
 .scroll-anim.fade-right {
     transform: translateX(-40px);
+}
+
+/* In-view state MUST be below the specific classes to override the transform */
+.scroll-anim.in-view {
+    opacity: 1;
+    transform: translate(0);
 }
 
 /* Delays for staggered elements */
