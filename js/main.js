@@ -1,31 +1,15 @@
 // Main Site Logic
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Mouse Glow & Custom Cursor Effect ---
+    // --- Mouse Glow Effect ---
     const cursorGlow = document.createElement('div');
     cursorGlow.id = 'cursor-glow';
     document.body.appendChild(cursorGlow);
-
-    const customCursor = document.createElement('div');
-    customCursor.id = 'custom-cursor';
-    if (window.matchMedia("(pointer: fine)").matches) {
-        document.body.appendChild(customCursor);
-    }
 
     window.addEventListener('mousemove', (e) => {
         requestAnimationFrame(() => {
             cursorGlow.style.left = `${e.clientX}px`;
             cursorGlow.style.top = `${e.clientY}px`;
-            if (window.matchMedia("(pointer: fine)").matches) {
-                customCursor.style.left = `${e.clientX}px`;
-                customCursor.style.top = `${e.clientY}px`;
-            }
         });
-    });
-
-    // Add hovering class on interactive elements for the cursor
-    document.querySelectorAll('a, button, input, select, textarea, .masonry-item').forEach(el => {
-        el.addEventListener('mouseenter', () => customCursor.classList.add('hovering'));
-        el.addEventListener('mouseleave', () => customCursor.classList.remove('hovering'));
     });
 
     // --- Mobile Menu Toggle ---
