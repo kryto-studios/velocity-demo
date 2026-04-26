@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
             events.sort((a, b) => new Date(b.date) - new Date(a.date)).forEach((item, index) => {
                 const isEven = index % 2 === 0;
                 const sideClass = isEven ? 'md:pr-12 md:text-right md:ml-0' : 'md:pl-12 md:ml-auto';
-                const dotPosition = isEven ? 'md:-right-[26px]' : 'md:-left-[26px]';
+                const dotPosition = isEven ? 'md:left-auto md:-right-[10px]' : 'md:-left-[10px]';
                 
                 const dateObj = new Date(item.date);
                 const dateStr = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
