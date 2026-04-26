@@ -43,6 +43,9 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Lottie Player for Micro-Animations -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 
 <body class="bg-velocity-light text-slate-800 font-sans flex flex-col min-h-screen overflow-x-hidden">
@@ -145,26 +148,33 @@
             </div>
         </section>
 
-        <!-- Stats Section -->
+        <!-- Stats Section (Animated Numbers) -->
         <section
-            class="py-12 bg-white/90 backdrop-blur-md border border-slate-200/50 relative z-20 mt-4 md:-mt-12 mx-4 md:mx-auto container rounded-2xl shadow-xl scroll-anim fade-up">
+            class="py-12 bg-white/90 backdrop-blur-md border border-slate-200/50 relative z-20 mt-4 md:-mt-12 mx-4 md:mx-auto container rounded-2xl shadow-xl scroll-anim fade-up" id="stats-section">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center px-2">
                 <div class="p-2">
-                    <div class="text-3xl sm:text-4xl font-heading font-bold text-velocity-blue mb-1 md:mb-2">4.9<span
-                            class="text-velocity-yellow">★</span></div>
+                    <div class="text-3xl sm:text-4xl font-heading font-bold text-velocity-blue mb-1 md:mb-2 flex items-center justify-center">
+                        <span class="counter-value" data-target="4.9" data-decimals="1">0</span><span class="text-velocity-yellow ml-1">★</span>
+                    </div>
                     <div class="text-xs sm:text-sm font-medium text-slate-500 uppercase tracking-wide">Google Rating</div>
                 </div>
                 <div class="p-2">
-                    <div class="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-velocity-blue mb-1 md:mb-2">JEE/NEET</div>
-                    <div class="text-xs sm:text-sm font-medium text-slate-500 uppercase tracking-wide">Coaching</div>
+                    <div class="text-3xl sm:text-4xl font-heading font-bold text-velocity-blue mb-1 md:mb-2 flex items-center justify-center">
+                        <span class="counter-value" data-target="5000">0</span>+
+                    </div>
+                    <div class="text-xs sm:text-sm font-medium text-slate-500 uppercase tracking-wide">Students Mentored</div>
                 </div>
                 <div class="p-2">
-                    <div class="text-3xl sm:text-4xl font-heading font-bold text-velocity-blue mb-1 md:mb-2">100+</div>
+                    <div class="text-3xl sm:text-4xl font-heading font-bold text-velocity-blue mb-1 md:mb-2 flex items-center justify-center">
+                        <span class="counter-value" data-target="150">0</span>+
+                    </div>
                     <div class="text-xs sm:text-sm font-medium text-slate-500 uppercase tracking-wide">Top Rankers</div>
                 </div>
                 <div class="p-2">
-                    <div class="text-3xl sm:text-4xl font-heading font-bold text-velocity-blue mb-1 md:mb-2">Expert</div>
-                    <div class="text-xs sm:text-sm font-medium text-slate-500 uppercase tracking-wide">Faculty Members</div>
+                    <div class="text-3xl sm:text-4xl font-heading font-bold text-velocity-blue mb-1 md:mb-2 flex items-center justify-center">
+                        <span class="counter-value" data-target="15">0</span>+
+                    </div>
+                    <div class="text-xs sm:text-sm font-medium text-slate-500 uppercase tracking-wide">Expert Faculty</div>
                 </div>
             </div>
         </section>
@@ -186,8 +196,10 @@
                         </div>
                     </div>
                     <div class="w-full md:w-1/2 scroll-anim fade-left">
-                        <span class="text-velocity-blue font-semibold tracking-wider text-sm uppercase mb-2 block">Our
-                            Philosophy</span>
+                        <div class="flex items-center gap-3 mb-2">
+                            <lottie-player src="https://lottie.host/80ce873d-fcfb-44ec-bda7-1bb4542d9dfd/T1wP59Q5qF.json" background="transparent" speed="1" style="width: 40px; height: 40px;" loop autoplay></lottie-player>
+                            <span class="text-velocity-blue font-semibold tracking-wider text-sm uppercase block">Our Philosophy</span>
+                        </div>
                         <h2 class="font-heading text-3xl md:text-5xl font-bold text-slate-800 mb-6">Excellence is not an
                             act, but a habit.</h2>
                         <p class="text-slate-600 mb-6 leading-relaxed text-base md:text-lg">
@@ -226,6 +238,84 @@
 
                         <div class="marquee-content flex gap-6" id="reviews-marquee">
                             <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== FACULTY SECTION ==================== -->
+        <section id="faculty" class="py-16 md:py-24 bg-slate-50/50 scroll-mt-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16 scroll-anim fade-up">
+                    <span class="text-velocity-blue font-semibold tracking-wider text-sm uppercase mb-2 block">Our Mentors</span>
+                    <h2 class="font-heading text-3xl md:text-5xl font-bold text-slate-800">Learn from the Best</h2>
+                    <p class="text-slate-600 mt-4 max-w-2xl mx-auto text-lg">Our faculty comprises highly experienced educators and alumni from India's premier institutes.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                    <!-- Faculty 1 -->
+                    <div class="relative group rounded-2xl overflow-hidden shadow-lg scroll-anim fade-up delay-1">
+                        <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=400&auto=format&fit=crop" alt="Faculty" class="w-full h-80 object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-velocity-dark/90 via-velocity-dark/20 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-500">
+                            <h3 class="font-heading text-xl font-bold text-white">Rahul Sharma</h3>
+                            <p class="text-velocity-yellow text-sm font-medium mb-3">Senior Physics Faculty</p>
+                            <!-- Glassmorphism Reveal -->
+                            <div class="opacity-0 group-hover:opacity-100 transition duration-500 h-0 group-hover:h-auto overflow-hidden">
+                                <div class="bg-white/20 backdrop-blur-md rounded-lg p-3 text-white text-xs border border-white/20">
+                                    <p class="mb-1"><i class="ph-fill ph-graduation-cap text-velocity-yellow"></i> IIT Kanpur Alumni</p>
+                                    <p><i class="ph-fill ph-clock text-velocity-yellow"></i> 12+ Years Experience</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 2 -->
+                    <div class="relative group rounded-2xl overflow-hidden shadow-lg scroll-anim fade-up delay-2">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop" alt="Faculty" class="w-full h-80 object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-velocity-dark/90 via-velocity-dark/20 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-500">
+                            <h3 class="font-heading text-xl font-bold text-white">Priya Singh</h3>
+                            <p class="text-velocity-yellow text-sm font-medium mb-3">Head of Biology</p>
+                            <div class="opacity-0 group-hover:opacity-100 transition duration-500 h-0 group-hover:h-auto overflow-hidden">
+                                <div class="bg-white/20 backdrop-blur-md rounded-lg p-3 text-white text-xs border border-white/20">
+                                    <p class="mb-1"><i class="ph-fill ph-graduation-cap text-velocity-yellow"></i> AIIMS Delhi</p>
+                                    <p><i class="ph-fill ph-clock text-velocity-yellow"></i> 8+ Years Experience</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 3 -->
+                    <div class="relative group rounded-2xl overflow-hidden shadow-lg scroll-anim fade-up delay-3">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop" alt="Faculty" class="w-full h-80 object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-velocity-dark/90 via-velocity-dark/20 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-500">
+                            <h3 class="font-heading text-xl font-bold text-white">Anand Kumar</h3>
+                            <p class="text-velocity-yellow text-sm font-medium mb-3">Mathematics Expert</p>
+                            <div class="opacity-0 group-hover:opacity-100 transition duration-500 h-0 group-hover:h-auto overflow-hidden">
+                                <div class="bg-white/20 backdrop-blur-md rounded-lg p-3 text-white text-xs border border-white/20">
+                                    <p class="mb-1"><i class="ph-fill ph-graduation-cap text-velocity-yellow"></i> NIT Raipur</p>
+                                    <p><i class="ph-fill ph-clock text-velocity-yellow"></i> 15+ Years Experience</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty 4 -->
+                    <div class="relative group rounded-2xl overflow-hidden shadow-lg scroll-anim fade-up delay-4">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop" alt="Faculty" class="w-full h-80 object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-velocity-dark/90 via-velocity-dark/20 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-500">
+                            <h3 class="font-heading text-xl font-bold text-white">Neha Verma</h3>
+                            <p class="text-velocity-yellow text-sm font-medium mb-3">Chemistry Faculty</p>
+                            <div class="opacity-0 group-hover:opacity-100 transition duration-500 h-0 group-hover:h-auto overflow-hidden">
+                                <div class="bg-white/20 backdrop-blur-md rounded-lg p-3 text-white text-xs border border-white/20">
+                                    <p class="mb-1"><i class="ph-fill ph-graduation-cap text-velocity-yellow"></i> MSc Chemistry, DU</p>
+                                    <p><i class="ph-fill ph-clock text-velocity-yellow"></i> 10+ Years Experience</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -350,24 +440,33 @@
                     <div class="text-center mb-8 md:mb-10">
                         <h3 class="font-heading text-2xl md:text-3xl font-bold text-slate-800">Exams We Cover</h3>
                         <p class="text-slate-500 mt-2 max-w-2xl mx-auto px-4 md:px-0">Providing comprehensive and focused preparation for India's most competitive entrance and board examinations.</p>
+                        
+                        <!-- Filters -->
+                        <div class="flex flex-wrap justify-center gap-2 mt-6" id="exam-filters">
+                            <button class="exam-filter-btn bg-velocity-blue text-white px-4 py-1.5 rounded-full text-sm font-semibold transition" data-filter="all">All</button>
+                            <button class="exam-filter-btn bg-white border border-slate-200 text-slate-600 hover:border-velocity-blue hover:text-velocity-blue px-4 py-1.5 rounded-full text-sm font-semibold transition" data-filter="engineering">Engineering</button>
+                            <button class="exam-filter-btn bg-white border border-slate-200 text-slate-600 hover:border-velocity-blue hover:text-velocity-blue px-4 py-1.5 rounded-full text-sm font-semibold transition" data-filter="medical">Medical</button>
+                            <button class="exam-filter-btn bg-white border border-slate-200 text-slate-600 hover:border-velocity-blue hover:text-velocity-blue px-4 py-1.5 rounded-full text-sm font-semibold transition" data-filter="govt">Govt/Bank</button>
+                            <button class="exam-filter-btn bg-white border border-slate-200 text-slate-600 hover:border-velocity-blue hover:text-velocity-blue px-4 py-1.5 rounded-full text-sm font-semibold transition" data-filter="school">School/Board</button>
+                        </div>
                     </div>
-                    <div class="flex flex-wrap justify-center gap-3 md:gap-4 max-w-5xl mx-auto">
-                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> CAT</span>
-                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> Civil services</span>
-                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> IBPS Clerk</span>
-                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> ICSE board</span>
-                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> JNVST</span>
-                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> NEET</span>
-                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> SSC CGL</span>
-                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> UGC Net</span>
-                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> CBSE board</span>
-                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> CTET</span>
-                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> IBPS RRB</span>
-                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> JEE</span>
-                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> LIC AAO</span>
-                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> SBI Clerk</span>
-                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> SSC Government</span>
-                        <span class="bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm hover:border-velocity-blue hover:text-velocity-blue transition cursor-default flex items-center gap-2"><i class="ph-bold ph-check text-velocity-blue"></i> UPSC Government</span>
+                    <div class="flex flex-wrap justify-center gap-3 md:gap-4 max-w-5xl mx-auto" id="exam-grid">
+                        <span class="exam-item transition-all duration-300 transform scale-100 opacity-100 bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm flex items-center gap-2" data-category="govt"><i class="ph-bold ph-check text-velocity-blue"></i> CAT</span>
+                        <span class="exam-item transition-all duration-300 transform scale-100 opacity-100 bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm flex items-center gap-2" data-category="govt"><i class="ph-bold ph-check text-velocity-blue"></i> Civil services</span>
+                        <span class="exam-item transition-all duration-300 transform scale-100 opacity-100 bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm flex items-center gap-2" data-category="govt"><i class="ph-bold ph-check text-velocity-blue"></i> IBPS Clerk</span>
+                        <span class="exam-item transition-all duration-300 transform scale-100 opacity-100 bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm flex items-center gap-2" data-category="school"><i class="ph-bold ph-check text-velocity-blue"></i> ICSE board</span>
+                        <span class="exam-item transition-all duration-300 transform scale-100 opacity-100 bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm flex items-center gap-2" data-category="school"><i class="ph-bold ph-check text-velocity-blue"></i> JNVST</span>
+                        <span class="exam-item transition-all duration-300 transform scale-100 opacity-100 bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm flex items-center gap-2" data-category="medical"><i class="ph-bold ph-check text-velocity-blue"></i> NEET</span>
+                        <span class="exam-item transition-all duration-300 transform scale-100 opacity-100 bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm flex items-center gap-2" data-category="govt"><i class="ph-bold ph-check text-velocity-blue"></i> SSC CGL</span>
+                        <span class="exam-item transition-all duration-300 transform scale-100 opacity-100 bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm flex items-center gap-2" data-category="govt"><i class="ph-bold ph-check text-velocity-blue"></i> UGC Net</span>
+                        <span class="exam-item transition-all duration-300 transform scale-100 opacity-100 bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm flex items-center gap-2" data-category="school"><i class="ph-bold ph-check text-velocity-blue"></i> CBSE board</span>
+                        <span class="exam-item transition-all duration-300 transform scale-100 opacity-100 bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm flex items-center gap-2" data-category="govt"><i class="ph-bold ph-check text-velocity-blue"></i> CTET</span>
+                        <span class="exam-item transition-all duration-300 transform scale-100 opacity-100 bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm flex items-center gap-2" data-category="govt"><i class="ph-bold ph-check text-velocity-blue"></i> IBPS RRB</span>
+                        <span class="exam-item transition-all duration-300 transform scale-100 opacity-100 bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm flex items-center gap-2" data-category="engineering"><i class="ph-bold ph-check text-velocity-blue"></i> JEE</span>
+                        <span class="exam-item transition-all duration-300 transform scale-100 opacity-100 bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm flex items-center gap-2" data-category="govt"><i class="ph-bold ph-check text-velocity-blue"></i> LIC AAO</span>
+                        <span class="exam-item transition-all duration-300 transform scale-100 opacity-100 bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm flex items-center gap-2" data-category="govt"><i class="ph-bold ph-check text-velocity-blue"></i> SBI Clerk</span>
+                        <span class="exam-item transition-all duration-300 transform scale-100 opacity-100 bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm flex items-center gap-2" data-category="govt"><i class="ph-bold ph-check text-velocity-blue"></i> SSC Government</span>
+                        <span class="exam-item transition-all duration-300 transform scale-100 opacity-100 bg-white/80 backdrop-blur-sm border border-slate-200 text-slate-700 px-5 py-2.5 rounded-full font-medium shadow-sm flex items-center gap-2" data-category="govt"><i class="ph-bold ph-check text-velocity-blue"></i> UPSC Government</span>
                     </div>
                 </div>
             </div>

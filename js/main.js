@@ -306,4 +306,92 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    // --- Animated Counters ---
+    const counters = document.querySelectorAll('.counter-value');
+    const statsSection = document.getElementById('stats-section');
+    let countersStarted = false;
+
+    if (counters.length > 0 && statsSection) {
+        const startCounters = () => {
+            counters.forEach(counter => {
+                const target = parseFloat(counter.getAttribute('data-target'));
+                const isDecimal = counter.hasAttribute('data-decimals');
+                const duration = 2000; // 2 seconds
+                let startTimestamp = null;
+
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    
+                    // easeOutQuart
+                    const easeProgress = 1 - Math.pow(1 - progress, 4);
+                    const currentVal = easeProgress * target;
+
+                    if (isDecimal) {
+                        counter.innerText = currentVal.toFixed(1);
+                    } else {
+                        counter.innerText = Math.floor(currentVal);
+                    }
+
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        counter.innerText = isDecimal ? target.toFixed(1) : target;
+                    }
+                };
+                window.requestAnimationFrame(step);
+            });
+        };
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !countersStarted) {
+                countersStarted = true;
+                startCounters();
+            }
+        }, { threshold: 0.5 });
+
+        counterObserver.observe(statsSection);
+    }
+
+    // --- Interactive Exam Filtering ---
+    const filterBtns = document.querySelectorAll('.exam-filter-btn');
+    const examItems = document.querySelectorAll('.exam-item');
+
+    if (filterBtns.length > 0 && examItems.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active styling from all buttons
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-velocity-blue', 'text-white');
+                    b.classList.add('bg-white', 'text-slate-600');
+                });
+
+                // Add active styling to clicked button
+                btn.classList.add('active', 'bg-velocity-blue', 'text-white');
+                btn.classList.remove('bg-white', 'text-slate-600');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                examItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.classList.remove('hidden');
+                        setTimeout(() => {
+                            item.classList.remove('scale-95', 'opacity-0');
+                            item.classList.add('scale-100', 'opacity-100');
+                        }, 10);
+                    } else {
+                        item.classList.remove('scale-100', 'opacity-100');
+                        item.classList.add('scale-95', 'opacity-0');
+                        setTimeout(() => {
+                            // Only hide if it still shouldn't be shown (prevents rapid clicking bugs)
+                            if (!item.classList.contains('opacity-100')) {
+                                item.classList.add('hidden');
+                            }
+                        }, 300);
+                    }
+                });
+            });
+        });
+    }
 });
