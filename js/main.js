@@ -1,5 +1,44 @@
+// --- Preloader Logic ---
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        setTimeout(() => {
+            preloader.classList.add('opacity-0');
+            preloader.classList.add('pointer-events-none');
+            setTimeout(() => {
+                preloader.remove();
+            }, 700);
+        }, 500);
+    }
+});
+
 // Main Site Logic
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Theme Toggle Logic ---
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('velocity_theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('velocity_theme', 'dark');
+            }
+        });
+    }
+
+    // --- Scroll Progress Indicator ---
+    const scrollProgress = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+        if (scrollProgress) {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            scrollProgress.style.width = scrolled + '%';
+        }
+    });
+
     // --- Mouse Glow Effect ---
     const cursorGlow = document.createElement('div');
     cursorGlow.id = 'cursor-glow';
