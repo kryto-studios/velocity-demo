@@ -4,8 +4,9 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     /* Professional Academic Background */
-    background-color: #f8fafc; /* velocity-light */
-    background-image: 
+    background-color: #f8fafc;
+    /* velocity-light */
+    background-image:
         radial-gradient(at 0% 0%, rgba(0, 71, 171, 0.05) 0px, transparent 50%),
         radial-gradient(at 100% 0%, rgba(255, 215, 0, 0.05) 0px, transparent 50%),
         radial-gradient(#cbd5e1 1px, transparent 1px);
@@ -39,16 +40,35 @@ body {
 }
 
 /* Delays for staggered elements */
-.delay-1 { transition-delay: 100ms; }
-.delay-2 { transition-delay: 200ms; }
-.delay-3 { transition-delay: 300ms; }
-.delay-4 { transition-delay: 400ms; }
+.delay-1 {
+    transition-delay: 100ms;
+}
+
+.delay-2 {
+    transition-delay: 200ms;
+}
+
+.delay-3 {
+    transition-delay: 300ms;
+}
+
+.delay-4 {
+    transition-delay: 400ms;
+}
 
 /* Existing Animations from Hero */
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
+
 .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
     opacity: 0;
@@ -56,9 +76,15 @@ body {
 
 /* Subtle Hero Zoom */
 @keyframes subtleZoom {
-    0% { transform: scale(1.05); }
-    100% { transform: scale(1.15); }
+    0% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1.15);
+    }
 }
+
 .animate-subtle-zoom {
     animation: subtleZoom 20s ease-in-out alternate infinite;
 }
@@ -81,8 +107,14 @@ body {
 }
 
 @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); /* For seamless loop, we duplicate items in JS and scroll 50% */ }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+        /* For seamless loop, we duplicate items in JS and scroll 50% */
+    }
 }
 
 /* Masonry Grid styles for Gallery */
@@ -92,11 +124,15 @@ body {
 }
 
 @media (min-width: 640px) {
-    .masonry-grid { column-count: 2; }
+    .masonry-grid {
+        column-count: 2;
+    }
 }
 
 @media (min-width: 1024px) {
-    .masonry-grid { column-count: 3; }
+    .masonry-grid {
+        column-count: 3;
+    }
 }
 
 .masonry-item {
@@ -162,7 +198,7 @@ body {
     left: 0;
     width: 600px;
     height: 600px;
-    background: linear-gradient(135deg, rgba(255, 215, 0, 0.03) 0%, rgba(0, 71, 171, 0.03) 100%);
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.07) 0%, rgba(0, 71, 171, 0.07) 100%);
     -webkit-mask-image: radial-gradient(circle, black 0%, transparent 60%);
     mask-image: radial-gradient(circle, black 0%, transparent 60%);
     border-radius: 50%;
@@ -171,5 +207,3 @@ body {
     z-index: 9998;
     transition: width 0.2s, height 0.2s;
 }
-
-
